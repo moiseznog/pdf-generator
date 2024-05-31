@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generator</title>
+</head>
+<body>
+    <h1>PDF Generator</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script>
+        function generatePDF() {
+            var docDefinition = {
+                content: [
+                    { text: 'Certificado', style: 'header' },
+                    'Aluno(a): _______________________________________',
+                    'Filho(a) de: _______________________________________',
+                    'e de: _____________________________________________',
+                    'nascido(a) em: ____ de __________ de _________',
+                    'no Município de (do): ____________________________',
+                    'Estado de (do): ___________________________________',
+                    'Portador da Identidade Nº: __________________________',
+                    'Concluiu em ____ de ________________ de _________',
+                    'o Ensino Médio Regular, conforme o artigo 24 inciso VII da Lei 9394 de',
+                    '20 de Dezembro de 1996 e da Resolução nº 207/06 do Conselho Estadual',
+                    'de Educação.',
+                    'VIANA(MA), ____ de ________________ de _________',
+                    '',
+                    '_________________________                      _________________________',
+                    'Assinatura do Diretor Titular                      Assinatura do Secretário(a)'
+                ]
+            };
+            pdfMake.createPdf(docDefinition).download('certificado.pdf');
+        }
+    </script>
+    <button onclick="generatePDF()">Generate PDF</button>
+</body>
+</html>
